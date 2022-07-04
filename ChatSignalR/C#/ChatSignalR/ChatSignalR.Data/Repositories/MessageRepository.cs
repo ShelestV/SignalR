@@ -6,14 +6,20 @@ using Microsoft.Extensions.Logging;
 
 namespace ChatSignalR.Data.Repositories;
 
-public sealed class MessageRepository : RepositoryBase<Message>, IMessageRepository
+public sealed class MessageRepository : 
+    RepositoryBase<Message>, 
+    IMessageRepository
 {
     protected override string ModelName => "message";
-    protected override Func<ChatDbContext, DbSet<Message>> GetModelSet => ((context) => context.Messages);
 
     public MessageRepository(IConfiguration configuration, ILogger<RepositoryBase<Message>>? logger = null)
         : base(configuration, logger)
     {
+    }
+
+    protected override DbSet<Message> GetModelSet(ChatDbContext context)
+    {
+        return context.Messages;
     }
 
     public async Task<OperationResult<Message>> UpdateAsync(Guid id, Message model)

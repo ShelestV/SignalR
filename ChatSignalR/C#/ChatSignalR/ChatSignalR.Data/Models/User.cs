@@ -1,6 +1,6 @@
 ﻿namespace ChatSignalR.Data.Models;
 
-public class User : ModelBase
+public sealed class User : ModelBase
 {
     public User()
     {
@@ -13,10 +13,10 @@ public class User : ModelBase
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<Message> MessageForwardedByNavigations { get; set; }
-    public virtual ICollection<Message> MessageUsers { get; set; }
+    public ICollection<Message> MessageForwardedByNavigations { get; set; }
+    public ICollection<Message> MessageUsers { get; set; }
 
-    public virtual ICollection<Chat> Chats { get; set; }
-    public virtual ICollection<User> Friends { get; set; }
-    public virtual ICollection<User> Users { get; set; }
+    public ICollection<Chat> Chats { get; set; }
+    public ICollection<User> Friends { get; set; }
+    public ICollection<User> Users { get; set; }
 }

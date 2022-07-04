@@ -14,7 +14,8 @@ public abstract class RepositoryBase<TModel>
     protected ChatDbContext Context => new(this.connectionString);
 
     protected abstract string ModelName { get; }
-    protected abstract Func<ChatDbContext, DbSet<TModel>> GetModelSet { get; }
+
+    protected abstract DbSet<TModel> GetModelSet(ChatDbContext context);
 
     public RepositoryBase(IConfiguration configuration, ILogger<RepositoryBase<TModel>>? logger = null)
     {

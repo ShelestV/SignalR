@@ -1,6 +1,6 @@
 ﻿namespace ChatSignalR.Data.Models;
 
-public class Message : ModelBase
+public sealed class Message : ModelBase
 {
     public string Text { get; set; } = null!;
     public DateTime? SendedAt { get; set; }
@@ -8,7 +8,7 @@ public class Message : ModelBase
     public Guid ChatId { get; set; }
     public Guid? ForwardedBy { get; set; }
 
-    public virtual Chat Chat { get; set; } = null!;
-    public virtual User? ForwardedByNavigation { get; set; }
-    public virtual User User { get; set; } = null!;
+    public Chat Chat { get; set; } = null!;
+    public User? ForwardedByNavigation { get; set; }
+    public User User { get; set; } = null!;
 }
