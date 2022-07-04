@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f2a70e8a-b0d1-44cb-a28f-4b8c1fa86eb6</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ChatSignalR.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)OperationResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OperationResultState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServicesAbstract\IAddable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServicesAbstract\ICrud.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServicesAbstract\IDeletable.cs" />
+  </ItemGroup>
+</Project>
